@@ -8,26 +8,45 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Today's Weather</h1>
+      <hr />
+      <form>
+        <label for="city-input">City</label><input id="city-input" type="text" />
+        <label for="country-input">Country</label><input id="country-input" type="text" />
+        <input type="submit" />
+        <input type="reset" />
+      </form>
+      <section>
+        <div>Johor, MY</div>
+        <div>Clouds</div>
+        <dl>
+          <dt>Description</dt>
+          <dd>scattered clouds</dd>
+
+          <dt>Temperature</dt>
+          <dd>303.15C ~ 306.15C</dd>
+
+          <dt>Humidity</dt>
+          <dd>58%</dd>
+
+          <dt>Time</dt>
+          <dd>2021-03-16 03:15pm</dd>
+        </dl>
+      </section>
+      <section>
+        <h2>Search History</h2>
+        <hr />
+        <ol>
+          <li>
+            <div>Johor, MY</div>
+            <div>
+              <div>03:15:02pm</div>
+              <button>Magnifying Glass</button>
+              <button>Trash Can</button>
+            </div>
+          </li>
+        </ol>
+      </section>
     </>
   )
 }
