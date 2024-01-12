@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './SearchField.css'
-import Search from '../../assets/images/Search.png';
 
 export default function SearchField({onSearch}) {
   const [city, setCity] = useState('');
