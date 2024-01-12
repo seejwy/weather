@@ -14,3 +14,11 @@ body {
 .wrapper {
   padding: 18px;
 }
+
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    max-width: 700px;
+    margin: auto;
+  }
+}
