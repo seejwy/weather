@@ -32,6 +32,7 @@ function App() {
       setWeather(data);
     } else {
       // error
+      setWeather(null);
     }
   }
 
@@ -62,7 +63,9 @@ function App() {
                 <div className="country hide-on-mobile">{ weather.name }, { weather.sys.country }</div>
               </div>
             </section>
-          </> : null
+          </> 
+          : 
+          <div className="not-found">No found</div>
         }
         
         { history.length ?
