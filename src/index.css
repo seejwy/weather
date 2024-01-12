@@ -19,8 +19,19 @@ button {
   cursor: pointer;
 }
 
+.hide-on-mobile {
+  display: none;
+}
 
 @media screen and (min-width: 768px) {
+  .hide-on-desktop {
+    display: none;
+  }
+
+  .hide-on-mobile {
+    display: block;
+  }
+
   .wrapper {
     max-width: 700px;
     margin: auto;
