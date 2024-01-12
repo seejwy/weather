@@ -3,6 +3,7 @@ import SearchField from './components/SearchField/SearchField';
 import HistoryList from './components/HistoryList/HistoryList';
 import HistoryItem from './components/HistoryItem/HistoryItem';
 import cloud from './assets/images/cloud.png';
+import sun from './assets/images/sun.png';
 import './App.css'
 import { formatTimestamp } from './utils/dateUtils';
 
@@ -49,7 +50,7 @@ function App() {
         {
           weather ? 
           <>
-            <img className="weather-icon" src={cloud} />
+            <img className="weather-icon" src={weather.weather[0].main === 'Clear' ? sun : cloud} />
             <section className="current-weather">
               <div>
                 <div className="current-temperature">{ weather.main.temp.toFixed() }°</div>
