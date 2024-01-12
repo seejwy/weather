@@ -1,4 +1,3 @@
-import HistoryItem from '../HistoryItem/HistoryItem';
 import './HistoryList.css';
 
 export default function History({children}) {
