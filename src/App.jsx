@@ -31,8 +31,7 @@ function App() {
       const data = await response.json();
       setHistory([{...data, id: Date.now()}, ...history]);
       setWeather(data);
-    } else {
-      // error
+    } else { // location not found
       setWeather(null);
     }
   }
