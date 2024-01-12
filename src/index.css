@@ -14,6 +14,7 @@ body {
 
 .wrapper {
   padding: 18px;
+  min-width: 250px;
 }
 
 button {
