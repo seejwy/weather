@@ -15,6 +15,10 @@ body {
   padding: 18px;
 }
 
+button {
+  cursor: pointer;
+}
+
 
 @media screen and (min-width: 768px) {
   .wrapper {
