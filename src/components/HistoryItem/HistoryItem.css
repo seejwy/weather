@@ -1,59 +1,59 @@
 .item {
-	height: 60px;
-	border-radius: 16px;
-	background: rgba(26, 26, 26, 0.50);
-	font-size: 14px;
-	padding: 13px 10px;
-	color: rgba(255, 255, 255, 0.4);
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+  height: 60px;
+  border-radius: 16px;
+  background: rgba(26, 26, 26, 0.5);
+  font-size: 14px;
+  padding: 13px 10px;
+  color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .left {
-	display: flex;
-	flex-direction: column;
-	gap: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .right {
-	display: flex;
-	gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .name {
-	color: #fff;
+  color: #fff;
 }
 
 .date {
-	font-size: 10px;
+  font-size: 10px;
 }
 
 .item button {
-	width: 34px;
-	height: 34px;
-	background: transparent;
-	border: 2px solid rgba(255, 255, 255, 0.4);
-	border-radius: 50%;
-	color: rgba(255, 255, 255, 0.4);
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (min-width: 768px) {
-    .item {
-        font-size: 16px;
-				gap: 16px;
-    }
+  .item {
+    font-size: 16px;
+    gap: 16px;
+  }
 
-		.date {
-			font-size: 14px;
-		}
+  .date {
+    font-size: 14px;
+  }
 
-		.left {
-			flex-direction: row;
-			justify-content: space-between;
-			width: 100%;
-		}
+  .left {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
 }
