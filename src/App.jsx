@@ -76,9 +76,6 @@ function App() {
             </HistoryList>
           </section> : null
         }
-
-
-            {/* <pre>{ JSON.stringify(history, null, 2) }</pre> */}
       </div>
     </div>
   )
