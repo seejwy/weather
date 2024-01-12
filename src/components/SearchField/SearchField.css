@@ -1,0 +1,38 @@
+label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(26, 26, 26, .5);
+    border-radius: 8px;
+    height: 40px;
+    padding: 0 12px;
+}
+
+.label {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.40);
+    font-size: 8px;
+    line-height: 12px;
+}
+
+label input {
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+}
+
+label input:focus {
+    outline: none;
+}
+
+button[type=submit] {
+	display: none;
+	background: #28124D;
+	color: #fff;
+	border-radius: 20px;
+	border: 0;
+	width: 60px;
+	height: 60px;
+}

@@ -1,0 +1,43 @@
+.item {
+	height: 60px;
+	border-radius: 16px;
+	background: rgba(26, 26, 26, 0.50);
+	font-size: 16px;
+	padding: 13px 10px;
+	color: rgba(255, 255, 255, 0.4);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.left {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.right {
+	display: flex;
+	gap: 10px;
+}
+
+.name {
+	color: #fff;
+}
+
+.date {
+	font-size: 10px;
+}
+
+.item button {
+	width: 34px;
+	height: 34px;
+	background: transparent;
+	border: 2px solid rgba(255, 255, 255, 0.4);
+	border-radius: 50%;
+	color: rgba(255, 255, 255, 0.4);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}

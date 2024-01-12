@@ -1,0 +1,47 @@
+.weather-wrapper {
+	position: relative;
+	border-radius: 20px;
+	background: rgba(26, 26, 26, 0.30);
+	padding: 20px;
+	margin-top: 70px;
+}
+
+h1 {
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.weather-icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 180px;
+	transform: translateY(-40%);
+}
+
+.current-weather {
+	display: flex;
+	align-items: flex-end;
+}
+
+.current-weather > div:nth-child(2) {
+	text-align: right;
+	flex-grow: 1;
+}
+
+.current-temperature {
+	font-size: 70px;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.temperature-range {
+	font-size: 16px;
+	line-height: 18px;
+}
+
+.country {
+	font-size: 16px;
+	font-weight: 800;
+}

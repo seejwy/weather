@@ -1,51 +1,85 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import SearchField from './components/SearchField/SearchField';
+import HistoryList from './components/HistoryList/HistoryList';
+import HistoryItem from './components/HistoryItem/HistoryItem';
+import cloud from './assets/images/cloud.png';
 import './App.css'
+import { formatTimestamp } from './utils/dateUtils';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [weather, setWeather] = useState(null);
+  const [history, setHistory] = useState([]);
+
+  useEffect(() => {
+    search();
+  }, []);
+
+  async function search(city = "Singapore", country = "SG") {
+    let geoResponse;
+    try {
+      geoResponse = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=b53da51f6e453474b1b9863698a935be`);
+    } catch(e) {
+      console.log({e});
+    }
+
+    const geoData = await geoResponse.json();
+
+    if(geoData.length) { // location found
+      const { lat, lon } = geoData[0];
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=b53da51f6e453474b1b9863698a935be`);
+      const data = await response.json();
+      setHistory([{...data, id: Date.now()}, ...history]);
+      setWeather(data);
+    } else {
+      // error
+    }
+  }
+
+  function removeItem(itemId) {
+    const newHistory = history.filter(item => item.id != itemId);
+    setHistory(newHistory);
+  }
 
   return (
-    <>
-      <h1>Today's Weather</h1>
-      <hr />
-      <form>
-        <label for="city-input">City</label><input id="city-input" type="text" />
-        <label for="country-input">Country</label><input id="country-input" type="text" />
-        <input type="submit" />
-        <input type="reset" />
-      </form>
-      <section>
-        <div>Johor, MY</div>
-        <div>Clouds</div>
-        <dl>
-          <dt>Description</dt>
-          <dd>scattered clouds</dd>
+    <div className="wrapper">
+      <SearchField onSearch={search} />
+      <div className="weather-wrapper">
+        <h1>Today's Weather</h1>
+        {
+          weather ? 
+          <>
+            <img className="weather-icon" src={cloud} />
+            <section className="current-weather">
+              <div>
+                <div className="current-temperature">{ weather.main.temp.toFixed() }°</div>
+                <div className="temperature-range">H: { weather.main.temp_max.toFixed() }° L: { weather.main.temp_min.toFixed() }°</div>
+                <div className="country">{ weather.name }, { weather.sys.country }</div>
+              </div>
+              <div>
+                <div>{ weather.weather[0].main }</div>
+                <div>Humidity: { weather.main.humidity }%</div>
+                <div>{ formatTimestamp(weather.dt) }</div>
+              </div>
+            </section>
+          </> : null
+        }
+        
+        { history.length ?
+          <section> 
+            <HistoryList>
+              {
+                history.map((item) => (
+                  <HistoryItem key={item.id} item={item} onSearch={setWeather} onRemove={removeItem} />
+                ))
+              }
+            </HistoryList>
+          </section> : null
+        }
 
-          <dt>Temperature</dt>
-          <dd>303.15C ~ 306.15C</dd>
 
-          <dt>Humidity</dt>
-          <dd>58%</dd>
-
-          <dt>Time</dt>
-          <dd>2021-03-16 03:15pm</dd>
-        </dl>
-      </section>
-      <section>
-        <h2>Search History</h2>
-        <hr />
-        <ol>
-          <li>
-            <div>Johor, MY</div>
-            <div>
-              <div>03:15:02pm</div>
-              <button>Magnifying Glass</button>
-              <button>Trash Can</button>
-            </div>
-          </li>
-        </ol>
-      </section>
-    </>
+            {/* <pre>{ JSON.stringify(history, null, 2) }</pre> */}
+      </div>
+    </div>
   )
 }
 
