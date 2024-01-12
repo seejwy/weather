@@ -44,9 +44,16 @@
 @media screen and (min-width: 768px) {
     .item {
         font-size: 16px;
+				gap: 16px;
     }
 
 		.date {
 			font-size: 14px;
+		}
+
+		.left {
+			flex-direction: row;
+			justify-content: space-between;
+			width: 100%;
 		}
 }
