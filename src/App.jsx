@@ -15,7 +15,7 @@ function App() {
     search();
   }, []);
 
-  async function search(city = "Singapore", country = "SG") {
+  async function search(city = "Singapore") {
     let geoResponse;
     try {
       geoResponse = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=b53da51f6e453474b1b9863698a935be`);
@@ -66,7 +66,7 @@ function App() {
             </section>
           </> 
           : 
-          <div className="not-found">No found</div>
+          <div className="not-found">No City Found</div>
         }
         
         { history.length ?
