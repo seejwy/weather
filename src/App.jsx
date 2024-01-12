@@ -53,12 +53,13 @@ function App() {
               <div>
                 <div className="current-temperature">{ weather.main.temp.toFixed() }°</div>
                 <div className="temperature-range">H: { weather.main.temp_max.toFixed() }° L: { weather.main.temp_min.toFixed() }°</div>
-                <div className="country">{ weather.name }, { weather.sys.country }</div>
+                <div className="country hide-on-desktop">{ weather.name }, { weather.sys.country }</div>
               </div>
               <div>
                 <div>{ weather.weather[0].main }</div>
                 <div>Humidity: { weather.main.humidity }%</div>
                 <div>{ formatTimestamp(weather.dt) }</div>
+                <div className="country hide-on-mobile">{ weather.name }, { weather.sys.country }</div>
               </div>
             </section>
           </> : null
