@@ -4,7 +4,6 @@ import Search from '../../assets/images/Search.png';
 
 export default function SearchField({onSearch}) {
   const [city, setCity] = useState('');
-  const [country, setCountry] = useState('SG');
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -20,7 +19,7 @@ export default function SearchField({onSearch}) {
 		<form onSubmit={handleSubmit}>
       <label htmlFor="country-input">
         <div className="label">Country</div>
-        <input id="country-input" type="text" value={city} onInput={handleCityInputChange} />
+        <input id="country-input" type="text" value={city} onInput={handleCityInputChange} autoComplete="off" />
       </label>
 			<button type="submit">
         <span className="material-symbols-outlined">search</span>
